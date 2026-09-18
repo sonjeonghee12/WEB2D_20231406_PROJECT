@@ -24,10 +24,19 @@ Unity 2D 프로젝트입니다.
 - 본 프로젝트는 교육/실습용으로 구성되었습니다.
 
 3주차 간단문제 풀기
+
+
+
+
 ![alt text](image-1.png)
+
+![alt text](image-2.png)
+
 ![alt text](image.png)
 
 Q & A
+
+
 • 오늘의 핵심 정리
 • 오브젝트 수와 Draw Call 수는 항상 같은 값이 아니다.
 • SRP Batcher는 Draw Call을 감소 x, CPU 렌더링 준비 비용을 줄이는 기
