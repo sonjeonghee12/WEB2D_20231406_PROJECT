@@ -22,3 +22,17 @@ Unity 2D 프로젝트입니다.
 
 ## 참고
 - 본 프로젝트는 교육/실습용으로 구성되었습니다.
+
+3주차 간단문제 풀기
+![alt text](image-1.png)
+![alt text](image.png)
+
+Q & A
+• 오늘의 핵심 정리
+• 오브젝트 수와 Draw Call 수는 항상 같은 값이 아니다.
+• SRP Batcher는 Draw Call을 감소 x, CPU 렌더링 준비 비용을 줄이는 기
+술이다.
+• Sprite Atlas는 텍스처를 통합해 배칭 조건을 개선할 수 있지만, 메모리
+증가와 같은 대가가 발생한다.
+• SRP Batcher에 Sprite Atlas의 조합은 실제 성능 테스트를 통해 검증해
+야 한다.
