@@ -148,12 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11c099177599bdd866ff3d940e5e786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DrawCallLab
-  count: 500
-  mode: 0
+  count: 5000
+  mode: 1
   forceInterleave: 0
-  srpBatcher: 1
+  srpBatcher: 0
   dynamicBatching: 0
-  materialVariants: 0
+  materialVariants: 1
   spacing: 0.8
   randomSeed: 20260301
   spriteFolder: Assets/Sprites
