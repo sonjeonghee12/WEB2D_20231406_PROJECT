@@ -28,11 +28,11 @@ Unity 2D 프로젝트입니다.
 
 
 
+![alt text](image.png)
+
 ![alt text](image-1.png)
 
-![alt text](image-2.png)
-
-![alt text](image.png)
+![alt text](<스크린샷 2026-09-18 140156.png>)g
 
 # Q & A
 
@@ -72,13 +72,13 @@ Tris(삼각형 수)는 #3(8,192)과 #6(8,192) 사이에 변화가 전혀 없었�
 FPS는 #3(362.9)에서 #6(405.9)으로 약 12% 개선되었다. DrawCalls가 줄어든 만큼 CPU가 렌더 상태를 준비하는 비용(Set Pass Call 포함)이 감소한 결과로 해석할 수 있다.
 
 # 스크린샷(1)
-![alt text](image-3.png)
+![alt text](image-2.png)
 
 # 스크린샷(2)
-![alt text](image-4.png)
+![alt text](image-3.png)
 
 # 스크린샷(6)
-![alt text](image-5.png)
+![alt text](image-4.png)
 
 
 # Q & A
