@@ -90,3 +90,33 @@ FPS는 #3(362.9)에서 #6(405.9)으로 약 12% 개선되었다. DrawCalls가 줄
 • 정렬이 필요없는 바닥과 벽은 Chunk 모드를 사용하고, 캐릭터와의 정렬이 중요한 오브젝트만 Individual 모드로 분리한다.
 
 • 병목의 최우선 과제는 드로우 콜 및 SetPass Call 병목을 개선하는 것이다.
+
+
+
+
+## 5주차 간단문제 풀기
+
+
+# 스크린샷(1)
+![alt text](image-5.png)
+
+# 스크린샷(2)
+![alt text](image-6.png)
+
+ai모델 이미지
+![alt text](player_astronaut.png)
+
+![alt text](image-7.png)
+
+
+# Q & A
+
+• 오늘의핵심정리
+
+• 카메라: Orthographic Camera의 Size는 화면에 보이는 World Unit을 결정하고, Tilemap은 Chu nk 단위로 컬링되어 Tris가 조금씩 변한다.
+
+• UI : Canvas 분리는 GPU 드로우콜과 CPU 재구성 범위 사이의 선택이다.
+
+• 에셋: AI 이미지는 원본점검(배경· 워터마크· 바닥) → 가공(PPU 64 · 알파 정리) → 프로젝트 규격에 맞는 텍스텨 설정을거쳐야쓸수있다.
+
+• 성능: 규격을맞춘에셋교체는DrawCalls · GPU 메모리를 바꾸지 않는다. 비교는 같은 환경 안에서, 같은 구간을, 여러 번 측정해야 한다.
