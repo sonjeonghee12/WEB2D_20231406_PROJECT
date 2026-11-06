@@ -26,7 +26,7 @@ Unity 2D 프로젝트입니다.
 
 ## 2주차 간단문제 풀기
 
-![alt text](image-11.png)
+![alt text](다운로드.png)
 
 
 
