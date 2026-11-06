@@ -182,3 +182,40 @@ UI상태: Color Tint를 사용할 때 Image는 흰색을 기준으로 한다.
 틴트: 각 성능은 실제 프로젝트에서 측정한다. (MPB 방식의 SetPass가 더 높게 측정됨)
 톤.가독성: 배경의 분위기와 캐릭터의 가독성을 구분해 설계한다.
 문서: 적용된 값에서 자동으로 만든 아트가이드가 팀의 기준
+
+
+
+
+
+## 7주차 간단문제 풀기
+
+# 7주차요약3줄
+
+입체감을 화면에 나타내려면 빛의 방향이 있는 점 조명(Spot Light 2D)을 사용하고 
+조명의 'Normal Maps' 설정을 켜야(Accurate) 하며, 이때 메모리와 드로우 콜 등 
+추가되는 렌더링 비용을 함께 고려해야 합니다
+
+# 측정#1 · #2 · #3 표
+
+![alt text](image-13.png)
+
+# 그림3장(Captures 폴더)
+![alt text](measure1_lab_left_right.png)
+
+![alt text](method_ai_enemy_slime.png)
+
+![alt text](week7_normalmap_before_after.png)
+
+# 조명을움직이는짧은GIF · 영상
+
+<video controls src="녹음 2026-11-06 140042.mp4" title="Title"></video>
+
+
+# Q & A
+
+오늘의핵심정리
+노멀맵: 색으로적은표면방향· 반드시sRGB OFF
+연결: _NormalMap으로연결· 오류가없으니검사
+만들기: 높이추측→ 기울기· 캐릭터혼합, 타일밝기
+조명: 비용방향있는조명만· Normal Maps를 켜야 보인다
+비용: 효과와비은따로판단· 프로젝트마다잰
