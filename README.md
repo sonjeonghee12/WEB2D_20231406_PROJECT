@@ -23,16 +23,38 @@ Unity 2D 프로젝트입니다.
 ## 참고
 - 본 프로젝트는 교육/실습용으로 구성되었습니다.
 
+
+## 2주차 간단문제 풀기
+
+![alt text](다운로드.png)
+
+
+
+
+# 차이점
+화면에 보이는 스프라이트의 크기는 두 경우 모두 2유닛으로 동일하여 결과 화면이 거의 같다. PPU는 스프라이트 에셋(Import Settings)의 속성으로, 이미지 몇 픽셀이 월드 1유닛에 해당하는지를 정한다. PPU를 낮출수록 같은 이미지가 월드에서 더 크게 표현된다. 반면 Transform Scale은 오브젝트(인스턴스)마다 적용되는 배율로, 스프라이트 에셋은 그대로 둔 채 그 오브젝트의 Transform만 확대한다. 따라서 PPU는 같은 스프라이트를 쓰는 모든 오브젝트에 일괄 적용되고, Scale은 해당 오브젝트(와 그 자식)에만 적용된다. 또한 Scale은 콜라이더 크기와 자식 오브젝트, 물리 계산에도 영향을 주지만, PPU는 스프라이트 크기와 그에 맞춘 콜라이더 기본 크기만 바꾼다.
+
+
+
+
+# Q & A
+트러블 슈팅• 문제가 생긴 경우 참고하자.
+![alt text](image-12.png)
+
+
+
+
+
 ## 3주차 간단문제 풀기
 
 
 
 
+![alt text](image.png)
+
 ![alt text](image-1.png)
 
-![alt text](image-2.png)
-
-![alt text](image.png)
+![alt text](<스크린샷 2026-09-18 140156.png>)g
 
 # Q & A
 
@@ -72,13 +94,13 @@ Tris(삼각형 수)는 #3(8,192)과 #6(8,192) 사이에 변화가 전혀 없었�
 FPS는 #3(362.9)에서 #6(405.9)으로 약 12% 개선되었다. DrawCalls가 줄어든 만큼 CPU가 렌더 상태를 준비하는 비용(Set Pass Call 포함)이 감소한 결과로 해석할 수 있다.
 
 # 스크린샷(1)
-![alt text](image-3.png)
+![alt text](image-2.png)
 
 # 스크린샷(2)
-![alt text](image-4.png)
+![alt text](image-3.png)
 
 # 스크린샷(6)
-![alt text](image-5.png)
+![alt text](image-4.png)
 
 
 # Q & A
@@ -90,3 +112,160 @@ FPS는 #3(362.9)에서 #6(405.9)으로 약 12% 개선되었다. DrawCalls가 줄
 • 정렬이 필요없는 바닥과 벽은 Chunk 모드를 사용하고, 캐릭터와의 정렬이 중요한 오브젝트만 Individual 모드로 분리한다.
 
 • 병목의 최우선 과제는 드로우 콜 및 SetPass Call 병목을 개선하는 것이다.
+
+
+
+
+## 5주차 간단문제 풀기
+
+
+# 스크린샷(1)
+![alt text](image-5.png)
+
+# 스크린샷(2)
+![alt text](image-6.png)
+
+ai모델 이미지
+![alt text](player_astronaut.png)
+
+![alt text](image-7.png)
+
+
+# Q & A
+
+• 오늘의핵심정리
+
+• 카메라: Orthographic Camera의 Size는 화면에 보이는 World Unit을 결정하고, Tilemap은 Chu nk 단위로 컬링되어 Tris가 조금씩 변한다.
+
+• UI : Canvas 분리는 GPU 드로우콜과 CPU 재구성 범위 사이의 선택이다.
+
+• 에셋: AI 이미지는 원본점검(배경· 워터마크· 바닥) → 가공(PPU 64 · 알파 정리) → 프로젝트 규격에 맞는 텍스텨 설정을거쳐야쓸수있다.
+
+• 성능: 규격을맞춘에셋교체는DrawCalls · GPU 메모리를 바꾸지 않는다. 비교는 같은 환경 안에서, 같은 구간을, 여러 번
+측정해야 한다.
+
+
+## 6주차 간단문제 풀기
+ 6주차 — 색 공간과 아트 가이드
+
+- 색 공간을 Linear로 통일하고, 팔레트 기반 UI/씬 톤 관리 시스템을 구축했습니다.
+- SRP Batcher 호환성을 유지하며 틴트 방식별 렌더링 비용을 측정했습니다.
+- 접근성(흑백/색약)을 고려해 아이콘·명도 차이로 정보를 구분했습니다.
+
+[아트 가이드 전체 보기 (ArtGuide.md)](./Assets/CG2Week6/ArtGuide/ArtGuide.md)
+
+![팔레트 스와치](./Assets/CG2Week6/ArtGuide/palette_swatch.png)
+
+측정 #1 · #2 · #3 표
+
+![alt text](image-6.png)
+
+흑백-색약
+![alt text](preview_던전_(분할_보색)_140224.png)
+
+3-3
+![alt text](image-7.png)
+
+용암 순환 테마
+![alt text](image-8.png)
+
+던전
+![alt text](image-9.png)
+
+# Q&A
+
+오늘의핵심정리
+
+색공간: 프로젝트 초기에 색 공간을 결정이 필요, 색 텍스처 sRGB ON, 데이터 OFF
+팔레트: 상태주조색 1 · 보조색 2 · 강조색 1 + 60:30:10 + 색상 조화 규칙
+UI상태: Color Tint를 사용할 때 Image는 흰색을 기준으로 한다.
+틴트: 각 성능은 실제 프로젝트에서 측정한다. (MPB 방식의 SetPass가 더 높게 측정됨)
+톤.가독성: 배경의 분위기와 캐릭터의 가독성을 구분해 설계한다.
+문서: 적용된 값에서 자동으로 만든 아트가이드가 팀의 기준
+
+
+
+
+
+## 7주차 간단문제 풀기
+
+# 7주차요약3줄
+노멀 맵은 평면 그림(스프라이트)에 면의 방향(기울기) 정보를 색(RGB)으로 저장하여 입체감을 구현하는 보조 텍스처입니다
+입체감을 화면에 나타내려면 빛의 방향이 있는 점 조명(Spot Light 2D)을 사용하고
+조명의 'Normal Maps' 설정을 켜야(Accurate) 하며, 이때 메모리와 드로우 콜 등
+추가되는 렌더링 비용을 함께 고려해야 합니다
+
+# 측정#1 · #2 · #3 표
+
+![alt text](image-13.png)
+
+# 그림3장(Captures 폴더)
+![alt text](measure1_lab_left_right.png)
+
+![alt text](method_ai_enemy_slime.png)
+
+![alt text](week7_normalmap_before_after.png)
+
+# 조명을움직이는짧은GIF · 영상
+
+[▶ 영상 재생 (MP4)](./녹음%202026-11-06%20140042.mp4)
+
+
+# Q & A
+
+오늘의핵심정리
+노멀맵: 색으로적은표면방향· 반드시sRGB OFF
+연결: _NormalMap으로연결· 오류가없으니검사
+만들기: 높이추측→ 기울기· 캐릭터혼합, 타일밝기
+조명: 비용방향있는조명만· Normal Maps를 켜야 보인다
+비용: 효과와비은따로판단· 프로젝트마다잰
+
+
+
+
+## 8주차 간단문제 풀기
+
+# 8주차 3줄요약
+
+명암 폭 확장: 어두운 필드의 입체감을 살리기 위해 타일(그림)의 빛 반사율은 밝게 높이고 전역 환경광은 낮춘 뒤 조명을 비춰 화면의 명암 폭을 크게 넓혔습니다.   
+2D 그림자 구현: 빛이 벽에 막혀 그림자가 생기도록 타일맵에 Shadow Caster 2D(도형 출처: CompositeCollider2D)를 추가하고 조명의 Shadows 옵션을 활성화했습니다.   
+조명 최적화: 그림자 조명은 일반 조명보다 렌더링 비용(DrawCalls, SetPass 등)이 매우 크기 때문에, 플레이어 랜턴이나 횃불처럼 시각적 효과가 큰 핵심 조명에만 선별적으로 켜야 합니다. 
+
+
+# 1
+
+![alt text](image-14.png)
+
+# 3
+
+![alt text](image-15.png)
+
+# 4
+
+![alt text](image-16.png)
+
+# 6
+
+![alt text](image-17.png)
+
+
+# 그림week8_before_after.png
+
+![alt text](week8_before_after.png)
+
+
+
+# 기둥사이를걷는짧은GIF · 영상
+
+<video controls src="8주차 움직이는 영상.mp4" title="Title"></video>
+
+
+
+# Q & A
+
+곱셈: 화면값= 그림×빛· 그림은밝게
+환경광: 낮을수록조명의폭이넓다· 그늘에도남는다
+조명: Radius · Falloff Strength · 색으로 정한다
+그림자: 벽의Shadow Caster 2D + 조명의 Shadows
+비용: 그림자조명은비싸다· 수를정해둔다
+
