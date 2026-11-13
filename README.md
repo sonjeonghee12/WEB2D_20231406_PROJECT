@@ -228,7 +228,7 @@ UI상태: Color Tint를 사용할 때 Image는 흰색을 기준으로 한다.
 
 # 기둥사이를걷는짧은GIF · 영상
 
-<video controls src="8주차 움직이는 영상.mp4" title="Title"></video>
+[▶ 영상 재생 (MP4)](./8주차%20움직이는%20영상.mp4)
 
 
 
