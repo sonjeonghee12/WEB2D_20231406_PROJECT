@@ -123,10 +123,6 @@ ai모델 이미지
 - SRP Batcher 호환성을 유지하며 틴트 방식별 렌더링 비용을 측정했습니다.
 - 접근성(흑백/색약)을 고려해 아이콘·명도 차이로 정보를 구분했습니다.
 
-[아트 가이드 전체 보기 (ArtGuide.md)](./Assets/CG2Week6/ArtGuide/ArtGuide.md)
-
-![팔레트 스와치](./Assets/CG2Week6/ArtGuide/palette_swatch.png)
-
 측정 #1 · #2 · #3 표
 
 ![alt text](image-6.png)
