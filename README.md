@@ -240,3 +240,59 @@ UI상태: Color Tint를 사용할 때 Image는 흰색을 기준으로 한다.
 그림자: 벽의Shadow Caster 2D + 조명의 Shadows
 비용: 그림자조명은비싸다· 수를정해둔다
 
+
+
+## 10주차 간단문제 풀기
+
+
+
+# 요약3줄
+
+Shader Graph 기반 피격 효과 구현: 색상을 곱하는 기존 SpriteRenderer.color 방식으로는 원본보다 밝아질 수 없어, Fragment 단계에서 Lerp 노드로 원래 텍스처와 플래시 색상을 섞는 SG_HitFlash 셰이더 그래프를 제작했습니다.
+HDR 밝기 보정 및 노멀 맵 유지: 조명 영향을 받는 어두운 영역에서도 피격 시 선명한 흰색이 나타나도록 FlashColor를 HDR(Intensity 2)로 설정하고, 기존 입체감을 유지하기 위해 NormalMap을 연결했습니다.
+스크립트 연동 및 URP 최적화:스크립트는 _FlashAmount 숫자 하나만 전달해 수천 픽셀의 계산을 GPU에 맡기며, URP의 SRP Batcher 효율을 유지하면서 맞은 적만 하얗게 변하도록 .material 복사본을 사용하고 OnDestroy에서 해제했습니다.
+
+
+# 측정#1
+![alt text](<스크린샷 2026-11-20 121350.png>)
+
+# 측정#3
+![alt text](<스크린샷 2026-11-20 131913.png>)
+
+# 측정#5
+![alt text](<스크린샷 2026-11-20 141017.png>)
+
+# 측정#6
+ ![alt text](<스크린샷 2026-11-20 141024.png>)
+
+
+ 
+# 전후 그림
+
+
+# 전
+![alt text](<스크린샷 2026-11-20 141158.png>)
+
+# 후
+![alt text](<스크린샷 2026-11-20 141300.png>)
+
+
+# Shader Graph 창 캡처
+
+![alt text](image-18.png)
+
+
+# 짧은 GIF
+
+![alt text](<10주차 gif.gif>)
+
+
+
+# 10주차 핵심정리
+
+곱하는색:color로는 원래보다 밝게 못만든다.
+Fragment: 픽셀마다도는단계· 색 효과는 여기서
+Shader Graph: 그래프→ HLSL · Save Asset해야 반영
+Reference:틀려도 오류가 없다· 검사로 확인
+Sprite Lit: 플래시도 조명을 받는다· 어두우면 HDR
+값 넣기: URP는복사본+ Destroy · MPB는 배처에서 빠진다
