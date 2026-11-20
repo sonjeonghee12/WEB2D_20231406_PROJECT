@@ -291,8 +291,13 @@ HDR 밝기 보정 및 노멀 맵 유지: 조명 영향을 받는 어두운 영�
 # 10주차 핵심정리
 
 곱하는색:color로는 원래보다 밝게 못만든다.
+
 Fragment: 픽셀마다도는단계· 색 효과는 여기서
+
 Shader Graph: 그래프→ HLSL · Save Asset해야 반영
+
 Reference:틀려도 오류가 없다· 검사로 확인
+
 Sprite Lit: 플래시도 조명을 받는다· 어두우면 HDR
+
 값 넣기: URP는복사본+ Destroy · MPB는 배처에서 빠진다
